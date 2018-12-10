@@ -1,0 +1,26 @@
+# /etc/conf.d/startlifed: config file for /etc/init.d/startlifed
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/startlife/startlife.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/startlifed"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/startlifed.pid"
+
+# Where to write startlifed data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/startlifed"
+
+# User and group to own startlifed process
+#BITCOIND_USER="startlife"
+#BITCOIND_GROUP="startlife"
+
+# Path to startlifed executable
+#BITCOIND_BIN="/usr/bin/startlifed"
+
+# Nice value to run startlifed under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

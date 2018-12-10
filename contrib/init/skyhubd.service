@@ -1,0 +1,26 @@
+[Unit]
+Description=StartLife's distributed currency daemon
+After=network.target
+
+[Service]
+User=startlife
+Group=startlife
+
+Type=forking
+PIDFile=/var/lib/startlifed/startlifed.pid
+
+ExecStart=/usr/bin/startlifed -daemon -pid=/var/lib/startlifed/startlifed.pid \
+          -conf=/etc/startlife/startlife.conf -datadir=/var/lib/startlifed
+
+ExecStop=-/usr/bin/startlife-cli -conf=/etc/startlife/startlife.conf \
+         -datadir=/var/lib/startlifed stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,17 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource prefix="/translations">
+        <file alias="ca">locale/startlife_ca.qm</file>
+        <file alias="da">locale/startlife_da.qm</file>
+        <file alias="de">locale/startlife_de.qm</file>
+        <file alias="en">locale/startlife_en.qm</file>
+        <file alias="en_US">locale/startlife_en_US.qm</file>
+        <file alias="es">locale/startlife_es.qm</file>
+        <file alias="fr_FR">locale/startlife_fr_FR.qm</file>
+        <file alias="it">locale/startlife_it.qm</file>
+        <file alias="ja">locale/startlife_ja.qm</file>
+        <file alias="pt">locale/startlife_pt.qm</file>
+        <file alias="ro_RO">locale/startlife_ro_RO.qm</file>
+        <file alias="ru">locale/startlife_ru.qm</file>
+        <file alias="zh_TW">locale/startlife_zh_TW.qm</file>
+    </qresource>
+</RCC>

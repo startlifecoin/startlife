@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=StartLife
+Comment=StartLife P2P Cryptocurrency
+Comment[fr]=StartLife, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=StartLife, eşten eşe kriptografik sanal para birimi
+Exec=startlife-qt %u
+Terminal=false
+Type=Application
+Icon=startlife128
+MimeType=x-scheme-handler/startlife;
+Categories=Office;Finance;
