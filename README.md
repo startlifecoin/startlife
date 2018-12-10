@@ -3,7 +3,7 @@ StartLife Core (fork of PIVX) integration/staging repository
 
 
 
-Quick installation of the StartLife daemon under linux. See detailed instructions there [build-unix.md](build-unix.md)
+Quick installation of the StartLife daemon under linux.
 
 Installation of libraries (using root user):
 
