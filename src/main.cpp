@@ -1624,21 +1624,28 @@ int64_t GetBlockValue(int nHeight)
         nSubsidy = 0 * COIN;
 	} else if (nHeight <= 1000 && nHeight > 130) {
 	      nSubsidy = 1 * COIN;
-} else if (nHeight <= 10000 && nHeight > 1000) {
+} else if (nHeight <= 3500 && nHeight > 1000) {
         nSubsidy = 0.6 * COIN;
-      } else if (nHeight <= 30000 && nHeight > 10000) {
-        nSubsidy = 0.8 * COIN;
-	} else if (nHeight <= 50000 && nHeight > 30000) {
+
+    } else if (nHeight <= 4000 && nHeight > 3500) {
+              nSubsidy = 0.7 * COIN;
+
+    } else if (nHeight <= 10000 && nHeight > 4000) {
+                    nSubsidy = 0.8 * COIN;
+
+  } else if (nHeight <= 30000 && nHeight > 10000) {
         nSubsidy = 1 * COIN;
-	} else if (nHeight <= 80000 && nHeight > 50000) {
+	} else if (nHeight <= 50000 && nHeight > 30000) {
         nSubsidy = 1.2 * COIN;
+	} else if (nHeight <= 80000 && nHeight > 50000) {
+        nSubsidy = 1.5 * COIN;
 	} else if (nHeight <= 150000 && nHeight > 80000) {
-        nSubsidy = 1.4 * COIN;
+        nSubsidy = 2 * COIN;
   } else if (nHeight <= 160000 && nHeight > 150000) {
-            nSubsidy = 2 * COIN;
+            nSubsidy = 2.5 * COIN;
 	} else if (nHeight <= 300000 && nHeight > 160000) {
         nSubsidy = 1.6 * COIN;
-	} else if (nHeight <= 7482533 && nHeight > 300000) {
+	} else if (nHeight <= 7439033 && nHeight > 300000) {
         nSubsidy = 1.5 * COIN;
     } else {
         nSubsidy = 0 * COIN;
@@ -1659,7 +1666,7 @@ int64_t GetMasternodePayment(int nHeight, int64_t blockValue, int nMasternodeCou
 		return 0;
 
     if (nHeight < 80000) {
-        ret =blockValue * 0.7;
+        ret = blockValue * 0.8;
     } else {
 		ret = blockValue * 0.8;
 	}

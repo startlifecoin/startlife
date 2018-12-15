@@ -146,7 +146,9 @@ public:
         fTestnetToBeDeprecatedFieldRPC = false;
         fHeadersFirstSyncingActive = false;
         nPoolMaxTransactions = 3;
-        strSporkKey = "03c1860a52dd3f31a6367357bac0598b86de5b95302d9c1f8ef7f133be5003c40f";
+
+        strSporkKey = "04607fe3001958fa40c14420ea7bac1ca1a1c87b0338288d49c927a13364398991ce42e501e4384a5c9d873881bfd6330800b5e763514e19d1fd62d6d77aa085ae";
+        strSporkKeyOld = "03c1860a52dd3f31a6367357bac0598b86de5b95302d9c1f8ef7f133be5003c40f";
 
         strObfuscationPoolDummyAddress = "SNvYyUu7M3oVUqK1LzXjYVE5FuPnzzCJZQ";
         nStartMasternodePayments = 1403728576; //Wed, 25 Jun 2014 20:36:16 GMT
