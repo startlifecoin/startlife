@@ -51,7 +51,7 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
 	(0, uint256("0x00000067ba0b8e382c5cff94c54b8e90de255cf776fdc24effa5dd03e972395b"))
   (50, uint256("0x000004125b93da15abeb9bd44f0ab92aa6b52a4158187aa88c3fcbe968bcd45c"))
   (95, uint256("0x0000082282e1f764d185f678d3f2fa330ea7fbbd99521fc0e478ccf0d6bca49d"))
-  (3179, uint256("0x00000000012a65cf0ee0c363155ebf31175e15791e3f02e4d69f4bc2617a6ad3"));
+  (5055, uint256("0x000000000d76543bb99f718aa02152571a1a053e7caf26ab270f932da0ee1656"));
 
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
@@ -147,9 +147,7 @@ public:
         fTestnetToBeDeprecatedFieldRPC = false;
         fHeadersFirstSyncingActive = false;
         nPoolMaxTransactions = 3;
-
-        strSporkKey = "04607fe3001958fa40c14420ea7bac1ca1a1c87b0338288d49c927a13364398991ce42e501e4384a5c9d873881bfd6330800b5e763514e19d1fd62d6d77aa085ae";
-        strSporkKeyOld = "03c1860a52dd3f31a6367357bac0598b86de5b95302d9c1f8ef7f133be5003c40f";
+        strSporkKey = "03c1860a52dd3f31a6367357bac0598b86de5b95302d9c1f8ef7f133be5003c40f";
 
         strObfuscationPoolDummyAddress = "SNvYyUu7M3oVUqK1LzXjYVE5FuPnzzCJZQ";
         nStartMasternodePayments = 1403728576; //Wed, 25 Jun 2014 20:36:16 GMT
