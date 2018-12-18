@@ -48,15 +48,6 @@ void ProcessSpork(CNode* pfrom, std::string& strCommand, CDataStream& vRecv)
 
         LogPrintf("spork - new %s ID %d Time %d bestHeight %d\n", hash.ToString(), spork.nSporkID, spork.nValue, chainActive.Tip()->nHeight);
 
-        if (spork.nTimeSigned >= Params().NewSporkStart()) {
-                  if (!sporkManager.CheckSignature(spork, true)) {
-                      LogPrintf("%s : Invalid Signature\n", __func__);
-                      Misbehaving(pfrom->GetId(), 100);
-                      return;
-                  }
-              }
-
-
         if (!sporkManager.CheckSignature(spork)) {
             LogPrintf("spork - invalid signature\n");
             Misbehaving(pfrom->GetId(), 100);
@@ -179,25 +170,18 @@ void ReprocessBlocks(int nBlocks)
 }
 
 
-bool CSporkManager::CheckSignature(CSporkMessage& spork, bool fCheckSigner)
+bool CSporkManager::CheckSignature(CSporkMessage& spork)
 {
-  //note: need to investigate why this is failing
+    //note: need to investigate why this is failing
     std::string strMessage = boost::lexical_cast<std::string>(spork.nSporkID) + boost::lexical_cast<std::string>(spork.nValue) + boost::lexical_cast<std::string>(spork.nTimeSigned);
-    CPubKey pubkeynew(ParseHex(Params().SporkKey()));
+    CPubKey pubkey(ParseHex(Params().SporkKey()));
+
     std::string errorMessage = "";
-
-    bool fValidWithNewKey = obfuScationSigner.VerifyMessage(pubkeynew, spork.vchSig,strMessage, errorMessage);
-
-    if (fCheckSigner && !fValidWithNewKey)
+    if (!obfuScationSigner.VerifyMessage(pubkey, spork.vchSig, strMessage, errorMessage)) {
         return false;
-
-    // See if window is open that allows for old spork key to sign messages
-    if (!fValidWithNewKey && GetAdjustedTime() < Params().RejectOldSporkKey()) {
-        CPubKey pubkeyold(ParseHex(Params().SporkKeyOld()));
-        return obfuScationSigner.VerifyMessage(pubkeyold, spork.vchSig, strMessage, errorMessage);
     }
 
-    return fValidWithNewKey;
+    return true;
 }
 
 bool CSporkManager::Sign(CSporkMessage& spork)
@@ -258,7 +242,7 @@ bool CSporkManager::SetPrivKey(std::string strPrivKey)
 
     Sign(msg);
 
-    if (CheckSignature(msg, true)) {
+    if (CheckSignature(msg)) {
         LogPrintf("CSporkManager::SetPrivKey - Successfully initialized as spork signer\n");
         return true;
     } else {
